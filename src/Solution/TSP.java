@@ -16,7 +16,6 @@ import model.Instance;
  */
 public class TSP {
 
-  
     private Depot depot;
     private LinkedList<Customer> customers;
     private LinkedList<Customer> lowestOrder;
@@ -36,7 +35,7 @@ public class TSP {
 
     //Nearest Neighbor
     private void InitialSolution() {
-        lowestOrder= new LinkedList<Customer>();
+        lowestOrder = new LinkedList<Customer>();
         System.out.println(customers.size());
         System.out.println(OrigList.size());
         Customer c = OrigList.pop();
@@ -51,33 +50,33 @@ public class TSP {
             MinCharge = Charge.WorstCharge();
 
             customers.add(0, c);
-            
+
             currentcharge = getCharge(customers);
             if (currentcharge.less(MinCharge)) {
                 lowestOrder.clear();
                 lowestOrder.addAll(customers);
                 MinCharge = currentcharge;
             }
-            
+
 
             for (int i = 1; i <= customers.size(); i++) {
 
                 if (i < customers.size()) {
-                   
-                    Collections.swap(customers,i - 1, i);
+
+                    Collections.swap(customers, i - 1, i);
                     currentcharge = getCharge(customers);
                     if (currentcharge.less(MinCharge)) {
                         lowestOrder.clear();
                         lowestOrder.addAll(customers);
                         MinCharge = currentcharge;
-                        
 
-                    } 
+
+                    }
 
                 }
 
             }
-            
+
         }
         s.setCharge(MinCharge);
         s.setCustomers(lowestOrder);
@@ -87,25 +86,25 @@ public class TSP {
 
     //2-OPT
     private void Optimize() {
-        LinkedList<Customer> optOrder= new LinkedList<Customer>();
-        
+        LinkedList<Customer> optOrder = new LinkedList<Customer>();
+
         Charge MinCharge = s.getCharge();
         Charge currentcharge;
         optOrder.addAll(s.getCustomers());
-        System.out.println("In opt "+lowestOrder);
+        System.out.println("In opt " + lowestOrder);
         for (int i = 1; i < lowestOrder.size() - 2; i++) {
             for (int j = i + 1; j < lowestOrder.size() - 1; j++) {
-                Collections.swap(lowestOrder,i , j);
+                Collections.swap(lowestOrder, i, j);
                 currentcharge = getCharge(lowestOrder);
-                if (currentcharge.less(MinCharge)){
-                    MinCharge=currentcharge;
+                if (currentcharge.less(MinCharge)) {
+                    MinCharge = currentcharge;
                     optOrder.clear();
                     optOrder.addAll(lowestOrder);
                 }
-               
-           
+
+
             }
-            }
+        }
         System.out.println();
         s.setCharge(MinCharge);
         s.setCustomers(optOrder);
@@ -114,21 +113,19 @@ public class TSP {
 
     }
 
-    
-
     public Solution getSolution() {
 
         return s;
 
     }
-    
-    public Charge getCharge(LinkedList<Customer> clist){
+
+    public Charge getCharge(LinkedList<Customer> clist) {
         clist.offerFirst(depot.DepotToCustomer());
         clist.offerLast(depot.DepotToCustomer());
-        Charge c=new Charge().getCharge(clist);
+        Charge c = new Charge().getCharge(clist);
         clist.removeFirst();
         clist.removeLast();
         return c;
-        
+
     }
 }

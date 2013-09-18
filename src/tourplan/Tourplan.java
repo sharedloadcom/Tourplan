@@ -6,13 +6,11 @@ package tourplan;
 
 import Solution.Solution;
 import Solution.TSP;
-import java.util.LinkedList;
-import java.util.Vector;
 import model.Instance;
 
 /**
  *
- * @author nappio
+ * @author sharedload.com
  */
 public class Tourplan {
 
@@ -20,8 +18,6 @@ public class Tourplan {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
-        
         Instance i=ReadInstance.ReadStaticFile();
         System.out.println("Anzahl Kunden" +i.getCustomers().size());
         TSP tsp=new TSP(i);

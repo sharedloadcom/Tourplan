@@ -5,13 +5,11 @@
 package model;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 /**
  *
- * @author nappio
+ * @author sharedload.com
  */
 public class Depot {
     private int Id;
@@ -20,8 +18,8 @@ public class Depot {
     private int Y;
     private int LB;
     private int UB;
-    private int Filling; //Füllgrad des Depots
-    private int Load; //bereits abgeholte Kapazität;
+    private int Filling; //filling degree of depot
+    private int Load; //picked up load
 
     public Depot() {
         vehicles=new ArrayList<Vehicle>();
@@ -112,7 +110,6 @@ public class Depot {
     }
     
     public Customer DepotToCustomer(){
-        //this=new Depot();
         Customer c = new Customer();
         c.setLB(this.getLB());
         c.setUB(this.getUB());

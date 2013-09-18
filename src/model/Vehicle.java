@@ -6,7 +6,7 @@ package model;
 
 /**
  *
- * @author nappio
+ * @author sharedload.com
  */
 public class Vehicle {
     private int Id;

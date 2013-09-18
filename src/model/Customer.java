@@ -6,7 +6,7 @@ package model;
 
 /**
  *
- * @author nappio
+ * @author sharedload.com
  */
 public class Customer {
     private int Id;

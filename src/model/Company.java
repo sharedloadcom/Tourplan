@@ -5,13 +5,11 @@
 package model;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 /**
  *
- * @author nappio
+ * @author sharedload.com
  */
 public class Company {
     private int Id;

@@ -9,7 +9,7 @@ import model.Customer;
 
 /**
  *
- * @author nappio
+ * @author sharedload.com
  */
 public class Charge {
 
@@ -18,12 +18,7 @@ public class Charge {
     private int distance;
 
     public Charge getCharge(LinkedList<Customer> customers) {
-        //calc Cahrge of this TSP
-        //Charge c =new Charge();
-
-        //int dist=0;
-        //int duration=0;
-        //int penalty=0;
+       
 
         for (int i = 0; i < customers.size() - 1; i++) {
             distance += Calc.calcDistance(customers.get(i), customers.get(i + 1));
@@ -31,9 +26,7 @@ public class Charge {
             penalty += calcPenalty(customers.get(i + 1));
         }
 
-        //c.setDistance(dist);
-        //c.setDuration(duration);
-        //c.setPenalty(penalty);
+     
         return this;
 
 
