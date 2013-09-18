@@ -1,4 +1,4 @@
 Tourplan
 ========
 
-Solves instances of tour planning problems in Java. Free BSD open source licence.
+Solves instances of tour planning problems in Java. Free BSD open source licence. Copyright by sharedload.com
