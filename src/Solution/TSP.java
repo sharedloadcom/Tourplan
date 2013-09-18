@@ -4,26 +4,19 @@
  */
 package Solution;
 
-import java.awt.Point;
-import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Iterator;
 import java.util.LinkedList;
-import java.util.List;
-import java.util.Vector;
 import model.Customer;
 import model.Depot;
 import model.Instance;
-import model.Vehicle;
 
 /**
  *
- * @author nappio
+ * @author sharedload.com
  */
 public class TSP {
 
-    /*private int id;
-     private Vehicle vehicle;*/
+  
     private Depot depot;
     private LinkedList<Customer> customers;
     private LinkedList<Customer> lowestOrder;
@@ -36,10 +29,8 @@ public class TSP {
         OrigList.addAll(i.getCustomers());
         depot = i.getCompany().getDepots().get(0);
         customers = new LinkedList<Customer>();
-        //lowestOrder = new LinkedList<Customer>();
         InitialSolution();
         Optimize();
-        //test();
 
     }
 
@@ -72,7 +63,7 @@ public class TSP {
             for (int i = 1; i <= customers.size(); i++) {
 
                 if (i < customers.size()) {
-                    //currentcharge = customers.getCharge();
+                   
                     Collections.swap(customers,i - 1, i);
                     currentcharge = getCharge(customers);
                     if (currentcharge.less(MinCharge)) {
@@ -100,8 +91,6 @@ public class TSP {
         
         Charge MinCharge = s.getCharge();
         Charge currentcharge;
-        /*s.setCharge(MinCharge);
-        s.setCustomers(lowestOrder);*/
         optOrder.addAll(s.getCustomers());
         System.out.println("In opt "+lowestOrder);
         for (int i = 1; i < lowestOrder.size() - 2; i++) {
@@ -113,7 +102,7 @@ public class TSP {
                     optOrder.clear();
                     optOrder.addAll(lowestOrder);
                 }
-                //AllOrders.addAll(TourOrder);
+               
            
             }
             }
@@ -125,38 +114,7 @@ public class TSP {
 
     }
 
-    public void test() {
-        s = new Solution();
-        Depot d = new Depot();
-        d.setX(0);
-        d.setY(0);
-        d.setLB(0);
-        d.setUB(1000);
-
-        Customer c1 = new Customer();
-        c1.setId(1);
-        c1.setX(50);
-        c1.setY(0);
-        c1.setLB(0);
-        c1.setUB(30);
-        c1.setST(10);
-
-        System.out.println();
-        System.out.println(d);
-
-        customers = new LinkedList<Customer>();
-        customers.add(c1);
-
-        //s.setCustomers(customers);
-        s.setCharge(getCharge(customers));
-        Charge ch1 = getCharge(customers);
-        Charge ch2 = new Charge();
-        ch2.setPenalty(20);
-        ch2.setDuration(110);
-        ch2.setDistance(101);
-        System.out.println(ch1.less(ch2));
-
-    }
+    
 
     public Solution getSolution() {
 

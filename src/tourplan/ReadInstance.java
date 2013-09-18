@@ -10,7 +10,6 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
-import model.Company;
 import model.Customer;
 import model.Depot;
 import model.Instance;
@@ -18,7 +17,7 @@ import model.Vehicle;
 
 /**
  *
- * @author nappio
+ * @author sharedload.com
  */
 public class ReadInstance {
 
@@ -54,7 +53,7 @@ public class ReadInstance {
             System.out.println("Anz. Depot " + inst.getNumberOfDepots());
             System.out.println("Anz. Kunden " + inst.getNumberOfCustomers());
             for (int i = 0; i < inst.getNumberOfDepots(); i++) {
-                //Vehicle v=new Vehicle();
+                
                 line = br.readLine();
                 values = line.split(" ");
                 
@@ -127,7 +126,7 @@ public class ReadInstance {
             }
 
 
-            //System.out.println(AlleDepots);
+           
             br.close();
             
         } catch (ArrayIndexOutOfBoundsException aioobe) {

@@ -8,7 +8,7 @@ import java.util.LinkedList;
 
 /**
  *
- * @author nappio
+ * @author sharedload.com
  */
 public class Solution {
      private LinkedList customers;

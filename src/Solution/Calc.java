@@ -5,12 +5,11 @@
 package Solution;
 
 import java.awt.Point;
-import java.util.LinkedList;
 import model.Customer;
 
 /**
  *
- * @author nappio
+ * @author sharedload.com
  */
 public class Calc {
 
